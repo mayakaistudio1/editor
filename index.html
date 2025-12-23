@@ -1,1 +1,201 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>🚀 Конструктор лендингов | O-Key AI</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+--accent: #ff9500;
+--bg: #0a0a0a;
+--card: #1a1a1a;
+--text: #fff;
+--text-muted: #b8b8b8;
+--radius: 12px;
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+body { 
+  background: var(--bg); 
+  color: var(--text); 
+  font-family: 'Montserrat', sans-serif; 
+  line-height: 1.6;
+  padding: 20px;
+}
+.editor { max-width:1400px; margin:0 auto; display:grid; grid-template-columns:1fr 1fr; gap:30px; }
+.form-section { background:var(--card); padding:30px; border-radius:var(--radius); height:fit-content; }
+.preview { background:#000; border-radius:var(--radius); overflow:hidden; border:2px solid var(--accent); }
+h2 { font-size:28px; font-weight:800; margin-bottom:20px; color:var(--accent); }
+h3 { font-size:20px; font-weight:700; margin:25px 0 15px 0; }
+input, textarea, select { 
+  width:100%; padding:12px; border:1px solid #333; border-radius:8px; 
+  background:#000; color:#fff; font-family:inherit; font-size:14px;
+}
+input:focus, textarea:focus { outline:none; border-color:var(--accent); box-shadow:0 0 0 2px rgba(255,149,0,0.2); }
+.group { margin-bottom:20px; }
+label { display:block; font-size:12px; color:var(--text-muted); margin-bottom:6px; font-weight:600; }
+textarea { resize:vertical; min-height:80px; font-size:14px; }
+.btn { 
+  background:var(--accent); color:#000; border:none; padding:14px 28px; 
+  font-weight:700; border-radius:8px; cursor:pointer; font-size:16px;
+  transition: all 0.3s;
+}
+.btn:hover { transform:translateY(-1px); box-shadow:0 8px 20px rgba(255,149,0,0.4); }
+.grid2 { display:grid; grid-template-columns:1fr 1fr; gap:15px; }
+@media (max-width:900px) { 
+  .editor { grid-template-columns:1fr; } 
+  .form-section { order:2; }
+}
+</style>
+</head>
+<body>
+<div class="editor">
+  <!-- ФОРМА РЕДАКТОРА -->
+  <div class="form-section">
+    <h2>📝 Настройка лендинга</h2>
+    
+    <div class="group">
+      <label>🎨 Основной цвет (--neo-green)</label>
+      <input type="color" id="neo_green" value="#ff9500">
+    </div>
+
+    <h3>🌟 Hero блок (верх)</h3>
+    <div class="group"><label>Заголовок страницы (title)</label><input type="text" id="title" value="Elena Vays - Success Together"></div>
+    <div class="group"><label>Бейдж (badge_hero)</label><input type="text" id="badge_hero" value="Только 10 мест в первой линии"></div>
+    <div class="group"><label>H1 заголовок</label><input type="text" id="hero_h1" value="Лена — ваш проводник в систему Success Together"></div>
+    <div class="group"><label>Параграф 1</label><textarea id="hero_p1">Я выбрала Success Together не как очередную сетевую компанию, а как бизнес нового формата с реальным фундаментом.</textarea></div>
+    <div class="group"><label>Параграф 2</label><textarea id="hero_p2">Здесь можно начать с заботы о здоровье, разобраться в системе и уже потом решить, нужен ли вам партнёрский доход.</textarea></div>
+    <div class="group"><label>Параграф 3</label><textarea id="hero_p3">Без давления, без обязаловки и без гонки за быстрыми деньгами.</textarea></div>
+
+    <h3>🤖 Блок с аватаром</h3>
+    <div class="group"><label>Бейдж</label><input type="text" id="avatar_badge" value="Поговорите с ассистентом"></div>
+    <div class="group"><label>H2 (имя ассистента)</label><input type="text" id="avatar_h2" value="Мария онлайн"></div>
+    <div class="group"><label>Описание под аватаром</label><textarea id="avatar_p">Чат с Марией — она ответит на вопросы и запишет на звонок.</textarea></div>
+    <div class="group"><label>iframe src аватара (полная ссылка)</label><input type="url" id="avatar_iframe" value="https://embed.liveavatar.com/v1/eac119ae-c46b-4bd9-a8e5-2bf008db4a0a"></div>
+
+    <h3>👤 Блок "Обо мне"</h3>
+    <div class="group"><label>H2 заголовок</label><input type="text" id="about_h2" value="Обо мне"></div>
+    <div class="group grid2">
+      <div><label>Пункт 1</label><textarea id="about_li1">Я долго рассматривала разные варианты и искала систему, которая будет устойчивой и честной.</textarea></div>
+      <div><label>Пункт 2</label><textarea id="about_li2">Для меня было важно наличие реального маркетплейса, собственной инфраструктуры, обучения и поддержки.</textarea></div>
+    </div>
+    <div class="group grid2">
+      <div><label>Пункт 3</label><textarea id="about_li3">В Success Together всё это сошлось.</textarea></div>
+      <div><label>Пункт 4</label><textarea id="about_li4">Это не эксперимент, а система, где можно расти спокойно, в своём темпе, не теряя себя.</textarea></div>
+    </div>
+
+    <h3>📱 Блок контактов</h3>
+    <div class="group"><label>H2</label><input type="text" id="contact_h2" value="Связаться с Леной"></div>
+    <div class="group"><label>Описание</label><textarea id="contact_p">Выберите, с чем вам сейчас хочется разобраться. Без обязательств и давления.</textarea></div>
+    <div class="group grid2">
+      <div><label>Опция 1 текст | data-interest</label><input type="text" id="option1_text" value="Забота о здоровье и самочувствии"><br><input type="text" id="option1_key" value="Забота о здоровье и самочувствии" style="margin-top:4px;font-size:12px"></div>
+      <div><label>Опция 2</label><input type="text" id="option2_text" value="Партнёрские возможности и доход"><br><input type="text" id="option2_key" value="Партнёрские возможности и доход" style="margin-top:4px;font-size:12px"></div>
+    </div>
+    <div class="group"><label>Опция 3</label><input type="text" id="option3_text" value="Просто узнать детали"><br><input type="text" id="option3_key" value="Просто узнать детали" style="margin-top:4px;font-size:12px"></div>
+    <div class="group"><label>WhatsApp номер (только цифры)</label><input type="tel" id="whatsappNumber" value="972544559898"></div>
+    <div class="group"><label>Telegram username</label><input type="text" id="telegramUser" value="ElenaVays"></div>
+    <div class="group"><label>Подвал контактов</label><textarea id="contact_footer">Прямой контакт. Без спама.</textarea></div>
+
+    <h3>🔗 Ссылки и футер</h3>
+    <div class="group grid2">
+      <div><label>EN версия</label><input type="url" id="en_url" value="https://mayakaistudio1.github.io/index.html"></div>
+      <div><label>RU версия (активная)</label><input type="url" id="ru_url" value="https://mayakaistudio1.github.io/elena-vays/index.html"></div>
+    </div>
+    <div class="group"><label>DE версия</label><input type="url" id="de_url" value="https://mayakaistudio1.github.io/de/index.html"></div>
+    <div class="group grid2">
+      <div><label>Ссылка презентации</label><input type="url" id="presentation_url" value="https://www.notion.so/presentation-en"></div>
+      <div><label>Текст ссылки</label><input type="text" id="presentation_text" value="Скачать презентацию"></div>
+    </div>
+    <div class="group grid2">
+      <div><label>© Год</label><input type="text" id="copyright_year" value="2025"></div>
+      <div><label>© Имя</label><input type="text" id="copyright_name" value="Elena Vays"></div>
+    </div>
+
+    <button class="btn" onclick="updatePreview()">🔄 Обновить превью</button>
+    <br><br>
+    <button class="btn" onclick="downloadHTML()" style="background:#00d4aa;">💾 Скачать готовый HTML</button>
+  </div>
+
+  <!-- ПРЕВЬЮ -->
+  <div class="preview">
+    <iframe id="previewFrame" style="width:100%;height:100vh;border:none;"></iframe>
+  </div>
+</div>
+
+<script>
+// ДЕФОЛТНЫЕ ЗНАЧЕНИЯ ИЗ ПАМЯТИ
+const defaults = {
+  "title": "Elena Vays - Success Together",
+  "neo_green": "#ff9500",
+  "neo_green_rgb": "255,149,0",
+  "badge_hero": "Только 10 мест в первой линии",
+  "hero_h1": "Лена — ваш проводник в систему Success Together",
+  "hero_p1": "Я выбрала Success Together не как очередную сетевую компанию, а как бизнес нового формата с реальным фундаментом.",
+  "hero_p2": "Здесь можно начать с заботы о здоровье, разобраться в системе и уже потом решить, нужен ли вам партнёрский доход.",
+  "hero_p3": "Без давления, без обязаловки и без гонки за быстрыми деньгами.",
+  "avatar_badge": "Поговорите с ассистентом",
+  "avatar_h2": "Мария онлайн",
+  "avatar_p": "Чат с Марией — она ответит на вопросы и запишет на звонок.",
+  "avatar_iframe": "https://embed.liveavatar.com/v1/eac119ae-c46b-4bd9-a8e5-2bf008db4a0a",
+  "about_h2": "Обо мне",
+  "about_li1": "Я долго рассматривала разные варианты и искала систему, которая будет устойчивой и честной.",
+  "about_li2": "Для меня было важно наличие реального маркетплейса, собственной инфраструктуры, обучения и поддержки.",
+  "about_li3": "В Success Together всё это сошлось.",
+  "about_li4": "Это не эксперимент, а система, где можно расти спокойно, в своём темпе, не теряя себя.",
+  "contact_h2": "Связаться с Леной",
+  "contact_p": "Выберите, с чем вам сейчас хочется разобраться. Без обязательств и давления.",
+  "option1_text": "Забота о здоровье и самочувствии",
+  "option1_key": "Забота о здоровье и самочувствии",
+  "option2_text": "Партнёрские возможности и доход",
+  "option2_key": "Партнёрские возможности и доход",
+  "option3_text": "Просто узнать детали",
+  "option3_key": "Просто узнать детали",
+  "whatsappNumber": "972544559898",
+  "telegramUser": "ElenaVays",
+  "presentation_url": "https://www.notion.so/presentation-en",
+  "presentation_text": "Скачать презентацию",
+  "copyright_year": "2025",
+  "copyright_name": "Elena Vays",
+  "en_url": "https://mayakaistudio1.github.io/index.html",
+  "ru_url": "https://mayakaistudio1.github.io/elena-vays/index.html",
+  "de_url": "https://mayakaistudio1.github.io/de/index.html",
+  "contact_footer": "Прямой контакт. Без спама."
+};
+
+// ФУНКЦИЯ ГЕНЕРАЦИИ HTML
+function generateHTML() {
+  const neo_green = document.getElementById('neo_green').value;
+  const neo_green_rgb = hexToRgb(neo_green).replace('#','');
+  
+  const data = {
+    title: getValue('title'),
+    neo_green: neo_green,
+    neo_green_rgb: neo_green_rgb,
+    badge_hero: getValue('badge_hero'),
+    hero_h1: getValue('hero_h1'),
+    hero_p1: getValue('hero_p1'),
+    hero_p2: getValue('hero_p2'),
+    hero_p3: getValue('hero_p3'),
+    avatar_badge: getValue('avatar_badge'),
+    avatar_h2: getValue('avatar_h2'),
+    avatar_p: getValue('avatar_p'),
+    avatar_iframe: getValue('avatar_iframe'),
+    about_h2: getValue('about_h2'),
+    about_li1: getValue('about_li1'),
+    about_li2: getValue('about_li2'),
+    about_li3: getValue('about_li3'),
+    about_li4: getValue('about_li4'),
+    contact_h2: getValue('contact_h2'),
+    contact_p: getValue('contact_p'),
+    option1_text: getValue('option1_text'),
+    option1_key: getValue('option1_key'),
+    option2_text: getValue('option2_text'),
+    option2_key: getValue('option2_key'),
+    option3_text: getValue('option3_text'),
+    option3_key: getValue('option3_key'),
+    whatsappNumber: getValue('whatsappNumber'),
+    telegramUser: getValue('telegramUser'),
+    presentation_url: getValue('presentation_url'),
+    presentation_text: getValue('presentation_text'),
+    copyright_year: getValue('copyright_year'),
 
